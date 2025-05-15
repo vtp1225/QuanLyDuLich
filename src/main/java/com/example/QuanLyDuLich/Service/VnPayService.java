@@ -1,9 +1,9 @@
 package com.example.QuanLyDuLich.Service;
 
+import com.example.QuanLyDuLich.dto.Request.PaymentInformationModel;
+import com.example.QuanLyDuLich.dto.Respone.PaymentResponseModel;
+import com.example.QuanLyDuLich.utils.VnPayUtils;
 import jakarta.servlet.http.HttpServletRequest;
-import org.example.demovnpay.entity.PaymentInformationModel;
-import org.example.demovnpay.entity.PaymentResponseModel;
-import org.example.demovnpay.utils.VnPayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;

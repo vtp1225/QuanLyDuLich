@@ -1,11 +1,10 @@
 package com.example.QuanLyDuLich.Controller;
 
 import com.example.QuanLyDuLich.Service.VnPayService;
+import com.example.QuanLyDuLich.dto.Request.PaymentInformationModel;
+import com.example.QuanLyDuLich.dto.Respone.PaymentResponseModel;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.example.demovnpay.entity.PaymentInformationModel;
-import org.example.demovnpay.entity.PaymentResponseModel;
-import org.example.demovnpay.service.VnPayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

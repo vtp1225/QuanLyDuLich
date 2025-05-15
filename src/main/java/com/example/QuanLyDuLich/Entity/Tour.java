@@ -14,7 +14,11 @@ import java.time.LocalDate;
 import java.util.Set;
 import java.util.UUID;
 
-v
+@Data
+@AllArgsConstructor
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Entity
 public class Tour {
     @Id
     String id;
