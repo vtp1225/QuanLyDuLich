@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -34,7 +35,10 @@ public class VnPayService {
         params.put("vnp_Version", env.getProperty("vnpay.version"));
         params.put("vnp_Command", env.getProperty("vnpay.command"));
         params.put("vnp_TmnCode", env.getProperty("vnpay.tmn-code"));
-        params.put("vnp_Amount", String.valueOf((int)(model.getAmount() * 100)));
+//        params.put("vnp_Amount", String.valueOf((int)(model.getAmount() * 100)));
+        BigDecimal amount = model.getAmount(); // BigDecimal
+        int amountInt = amount.multiply(BigDecimal.valueOf(100)).intValue();
+
         params.put("vnp_CreateDate", now.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")));
         params.put("vnp_CurrCode", env.getProperty("vnpay.curr-code"));
         params.put("vnp_IpAddr", ipAddress);
