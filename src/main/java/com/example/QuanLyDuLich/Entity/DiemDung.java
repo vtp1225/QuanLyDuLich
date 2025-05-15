@@ -2,24 +2,27 @@ package com.example.QuanLyDuLich.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
-@Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Role {
+@Entity
+public class DiemDung {
     @Id
-    String rolename;
-    String description;
-    @ManyToMany()
-    Set<Permission> permissions;
+    String iddiemdung;
+    String tendiemdung;
+    LocalDateTime thoigiandi;
+    LocalDateTime thoigianroi;
+    List<String> anhminhhoa;
 }

@@ -33,6 +33,15 @@ public class UserController {
         api.setMessage("Thanh Cong");
         return api;
     }
+    @GetMapping("/verify")
+    ApiRespone verifyUser(@RequestParam String email,@RequestParam String code)
+    {
+        var verify = userService.verifyUser(email,code);
+            return ApiRespone.builder()
+                    .code(000)
+                    .message(verify)
+                    .build();
+    }
     @GetMapping
     List<User> getAllUser()
     {

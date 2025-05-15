@@ -11,6 +11,7 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,17 +23,20 @@ import java.util.List;
 public class PermissionService {
     PermissionRepository repository;
     PermissionMapper mapper;
+    @PreAuthorize("hasRole('ADMIN')")
     public PermissionRespone create(PermissionRequest request)
     {
         Permission permission= new Permission();
         permission= mapper.ToPermission(request);
         return mapper.ToPermissionRespone(repository.save(permission));
     }
+    @PreAuthorize("hasRole('ADMIN')")
     public List<PermissionRespone> getAll()
     {
         var permissions = repository.findAll();
         return permissions.stream().map(mapper::ToPermissionRespone).toList();
     }
+    @PreAuthorize("hasRole('ADMIN')")
     public void delete(String permission)
     {
         Permission permission1 = repository.findById(permission)

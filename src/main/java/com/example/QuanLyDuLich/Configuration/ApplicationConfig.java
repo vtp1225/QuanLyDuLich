@@ -4,6 +4,7 @@ import com.example.QuanLyDuLich.Entity.Role;
 import com.example.QuanLyDuLich.Entity.User;
 import com.example.QuanLyDuLich.Repository.RoleRepository;
 import com.example.QuanLyDuLich.Repository.UserRepository;
+import com.example.QuanLyDuLich.Service.RoleService;
 import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,7 @@ import java.util.List;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ApplicationConfig {
+
     @Autowired
     PasswordEncoder passwordEncoder ;
     @Autowired
@@ -34,10 +36,13 @@ public class ApplicationConfig {
     @Transactional
     @Bean
     ApplicationRunner applicationRunner(UserRepository userRepository) {
-
-        List<String> admin = new ArrayList<>();
-        admin.add("ADMIN");
-        var roles=roleRepository.findAllById(admin);
+        if(!roleRepository.existsById("ADMIN")) {
+            Role admin = new Role("ADMIN", "La ADMIN", null);
+            roleRepository.save(admin);
+        }
+        List<String> adminname = new ArrayList<>();
+        adminname.add("ADMIN");
+        var roles = roleRepository.findAllById(adminname);
         Hibernate.initialize(roles);
         for (Role role : roles) {
             Hibernate.initialize(role.getPermissions());

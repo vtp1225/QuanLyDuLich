@@ -2,15 +2,30 @@ server:
   port: 8080
   servlet:
     context-path: /QuanLyDuLich
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 spring:
   datasource:
-    url: "jdbc:mysql://localhost:3307/QuanLyDuLich"
+    url: "jdbc:mysql://localhost:3307/QuanLyDuLich?useUnicode=true&characterEncoding=UTF-8"
     username: root
     password: phu123
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: quyvo2079@gmail.com
+    password: ygdyexkaoeroddtc
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 jwt:
   signerKey: "Sz2B4cavWkmDSMCJGf/yyj2+xMbcbawy50MV1oJHz/qbAHV91byX95w6prMSkxrv"

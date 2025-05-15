@@ -37,4 +37,5 @@ public class User {
             ngaydk = LocalDateTime.now();
         }
     }
+    String maxacthuc = null;
 }

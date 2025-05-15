@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
         validatedBy = {PassValidator.class}
 )
 public @interface PassConstraint {
-    String message() default "Ngay sinh khong hop le";
+    String message() default "Password khong hop le";
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};

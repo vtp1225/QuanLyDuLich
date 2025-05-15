@@ -9,5 +9,7 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User,String> {
     boolean existsBytendangnhap(String tendangnhap);
     Optional<User> findBytendangnhap(String tendangnhap);
+    boolean existsByemail(String email);
 
+    Optional<User> findByemail(String email);
 }

@@ -17,7 +17,11 @@ public enum ErrorCode {
     PERMISSION_NOTEXIST(404,"KHONG CO PERMISSION NAY",HttpStatus.NOT_FOUND),
     NOT_EXIST_ROLE(400,"Role nay khong ton tai",HttpStatus.NOT_FOUND),
     DATE_VALID(123,"Ban chua du {min}+ de vao trang nay :)))",HttpStatus.BAD_REQUEST),
-    PASS_VALID(123,"PASSWORD phai bao gom 1 ky tu viet hoa va 1 ky tu dat biet",HttpStatus.BAD_REQUEST)
+    PASS_VALID(123,"PASSWORD phai bao gom 1 ky tu viet hoa va 1 ky tu dat biet",HttpStatus.BAD_REQUEST),
+    TOUR_NOTEXTIST(123456,"Khong ton tai tour nao nhu the",HttpStatus.NOT_FOUND),
+    LICHTRINH_NOTEXIST(123456,"Khong ton tai LICH TRINH NAY nao nhu the",HttpStatus.NOT_FOUND)
+
+
     ;
     private String message;
     private int code;
