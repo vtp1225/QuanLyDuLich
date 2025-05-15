@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán thành công</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f9ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+        .icon-success {
+            color: #4CAF50;
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #2E7D32;
+            margin-bottom: 20px;
+        }
+        .info-box {
+            background: #f1f8e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .btn {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon-success">✓</div>
+        <h1>Thanh toán thành công!</h1>
+        <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.</p>
+        
+        <div class="info-box">
+            <p><strong>Mã giao dịch:</strong> <span id="orderId">123456789</span></p>
+            <p><strong>Số tiền:</strong> <span id="amount">100,000</span> VND</p>
+            <p><strong>Phương thức:</strong> VNPAY QR</p>
+            <p><strong>Thời gian:</strong> <span id="time">10:30 20/05/2024</span></p>
+        </div>
+
+        <p>Chúng tôi đã gửi email xác nhận đến bạn.</p>
+        <a href="/" class="btn">Quay về trang chủ</a>
+    </div>
+
+    <script>
+        // Lấy thông tin từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('orderId')) {
+            document.getElementById('orderId').textContent = urlParams.get('orderId');
+        }
+        if (urlParams.get('amount')) {
+            document.getElementById('amount').textContent = 
+                (parseInt(urlParams.get('amount')) / 100).toLocaleString();
+        }
+        if (urlParams.get('transactionTime')) {
+            const input = urlParams.get('transactionTime');
+            const formatted = input.replace("T", " ");
+            document.getElementById('time').textContent = formatted;
+        }
+        // Hiển thị thời gian hiện tại
+        // document.getElementById('time').textContent = new Date().toLocaleString('vi-VN');
+    </script>
+</body>
+</html>

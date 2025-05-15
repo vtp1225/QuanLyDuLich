@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán thất bại</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+        .icon-failed {
+            color: #f44336;
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #c62828;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background: #f44336;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #d32f2f;
+        }
+        .btn-retry {
+            background: #2196F3;
+            margin-left: 10px;
+        }
+        .btn-retry:hover {
+            background: #0b7dda;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon-failed">✗</div>
+        <h1>Thanh toán không thành công</h1>
+        <p>Giao dịch của bạn đã bị hủy hoặc xảy ra lỗi.</p>
+        <p id="errorDetail" style="color: #d32f2f; font-weight: bold;"></p>
+        
+        <div style="margin-top: 30px;">
+            <a href="/payment" class="btn">Thử lại thanh toán</a>
+            <a href="/" class="btn btn-retry">Về trang chủ</a>
+        </div>
+    </div>
+
+    <script>
+        // Hiển thị chi tiết lỗi nếu có
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('error')) {
+            document.getElementById('errorDetail').textContent = 
+                decodeURIComponent(urlParams.get('error'));
+        }
+    </script>
+</body>
+</html>

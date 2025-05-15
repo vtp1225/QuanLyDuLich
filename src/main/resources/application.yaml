@@ -29,3 +29,16 @@ spring:
 
 jwt:
   signerKey: "Sz2B4cavWkmDSMCJGf/yyj2+xMbcbawy50MV1oJHz/qbAHV91byX95w6prMSkxrv"
+
+vnpay:
+  tmn-code: 9WR33BBN
+  hash-secret: EV9C0G1079UVL85Q963OPGSOY6BLNTON
+  base-url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+  return-url: http://localhost:8080/vnpay/payment/vnpay-callback
+  version: 2.1.0
+  command: pay
+  curr-code: VND
+  locale: vn
+
+timezone:
+  id: Asia/Ho_Chi_Minh
