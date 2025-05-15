@@ -1,4 +1,4 @@
-package com.example.QuanLyDuLich.dto.Request;
+package com.example.QuanLyDuLich.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -15,7 +15,6 @@ import lombok.experimental.FieldDefaults;
 public class PaymentInformationModel {
     @Id
     private String id;
-
     private String orderType;
     private double amount;
     private String orderDescription;

@@ -1,7 +1,7 @@
 package com.example.QuanLyDuLich.Controller;
 
 import com.example.QuanLyDuLich.Service.VnPayService;
-import com.example.QuanLyDuLich.dto.Request.PaymentInformationModel;
+import com.example.QuanLyDuLich.Entity.PaymentInformationModel;
 import com.example.QuanLyDuLich.dto.Respone.PaymentResponseModel;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
